@@ -1,0 +1,33 @@
+<html>
+    <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+        <title></title>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            var text = "outside";
+            function logIn(){
+                console.log(text);
+                var text = "inside";
+            }
+            logIn(); // undefined
+        </script>
+        <button id="btn-0">Button 1!</button>
+        <button id="btn-1">Button 2!</button>
+        <button id="btn-2">Button 3!</button>
+        <script>
+            var prizes = ['A unicorn', 'A hug' , 'Fresh Fruits'];
+            for(var btnNum = 0; btnNum < prizes.length; btnNum++ ){
+
+                document.getElementById('btn-'+btnNum).onclick = function(s){
+                    return function(){
+                        alert(prizes[s]);
+                    }
+                    
+                }(btnNum);
+            }
+        </script>
+    </body>
+</html>

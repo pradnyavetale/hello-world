@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>{{Page.title()}}</title>
+    <script src= "angular/scripts/angular.min.js"></script>
+
+	<script src= "angular/scripts/angular-route.min.js"></script>
+		<script src= "angular/scripts/angular-resource.min.js"></script>
+	<script src= "angular/scripts/angular-messages.min.js"></script>
+	<script src= "angular/scripts/angular-loader.min.js"></script>
+	<style src="angular/scripts/angular-style.css" type="text/css"></style>
+	<script src="angular/scripts/app.js" type="text/javascript" ></script>
+<!-- 	<script>
+	var myapp = angular.module("myapp", ["ngRoute"]);
+	myapp.config('$routeProvider', function($routeProvider){
+	console.log('Working');
+	$routeProvider.when(
+	'/page',
+	{
+		templateUrl:'html/home.html'
+	});
+});
+</script> -->
+</head>
+<body  ng-app="myapp">
+	<div ng-controller="checkVertical" style="position:fixed;">
+		<a href=""ng-click="goToanchor(x)" ng-repeat="x in [1,2,3]">
+			Go to {{x}}
+		</a>
+		
+	</div>
+<div   ng-controller="loginController">
+<a id="top"></a>
+    <h1>{{helloToTitle}}</h1>
+	<nav>
+		<ul>
+			<li><a ng-click="home()">Home</a></li>
+			<li><a href = "#page">Page 1</a></li>
+		</ul>
+	</nav>
+	<div>
+		<a scroll-on-click>Go to bottom</a>
+		<input type="text" name="uname" ng-model="uname"/>
+		<input type="password" name="password" ng-model="pwd"/>
+		<button ng-click="login()" >Login</button>
+		<p id="uname_val"></p>
+		<div home></div>
+	</div>
+	<div id="home" style="display : block; margin-top: 900px">
+	<a id="bottom"></a>
+		<p>Some Text</p>
+		<a ng-click="top_anchor()">Go to top</a>
+	</div>
+	<div ng-view></div>
+</div>
+
+	<div id="anchor{{x}}" ng-repeat="x in [1,2,3]" style="display:block; border:2px solid green; padding:20px 20px 300px 20px">
+		Anchor {{x}} in 3
+	</div>
+</body>
+</html>
